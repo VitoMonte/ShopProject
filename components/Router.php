@@ -29,9 +29,6 @@ class Router
         //check is $uri in routes.php
         foreach ($this->routes as $uriPattern => $path) {
 
-
-
-
             //compare $uriPattern and $uri
             if (preg_match("~$uriPattern~", $uri)) {
 
@@ -40,11 +37,14 @@ class Router
 
                 //define witch controller and action process request
                 $segments = explode('/', $internalRoute);
+
                 $controllerName = array_shift($segments ) . 'Controller';
                 $controllerName = ucfirst($controllerName);
+
                 $actionName = 'action'.ucfirst(array_shift($segments));
 
                 $parameters = $segments;
+
 
                 //include file controller-class
                 $controllerFile = ROOT . '/controllers/' . $controllerName . '.php';
@@ -60,13 +60,7 @@ class Router
                 if ($result != null) {
                     break;
                 }
-
-
             }
         }
-
-
-
 	}
-
 }

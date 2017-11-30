@@ -1,18 +1,28 @@
 <?php
 
+require_once ROOT. '/models/News.php';
+
 class NewsController {
 
     public function actionIndex()
     {
-        echo 'Список новостей' . '<br>';
+        $newsList = [];
+        $newsList = News::getNewsList();
+
+        var_dump($newsList);
+
         return true;
     }
 
     public function actionView($category, $id)
     {
-        echo $category. '<br>';
-        echo $id. '<br>';
-        return true;
+        if (!empty($category) && !empty($id)) {
+            $newsItem = News::getNewsItemById($category, $id);
+
+            var_dump($newsItem);
+
+            return true;
+        }
     }
 
 }
