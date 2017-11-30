@@ -1,5 +1,6 @@
 <?php
 return array(
+    'news/([a-z]+)/([0-9]+)' =>'news/view/$1/$2', // actoinIndex to NewsController
     'news' =>'news/index', // actoinIndex to NewsController
-    'products' => 'products/list', // actoinList to ProductsController
+    'products' => 'product/list', // actoinList to ProductsController
 );
